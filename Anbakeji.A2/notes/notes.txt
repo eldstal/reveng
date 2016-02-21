@@ -1,0 +1,16 @@
+The device has a unique (?) default password which is the same as its serial number.
+
+Without authentication, anyone can connect using
+  rtsp://DEVICE/live0.264
+and view the video stream.
+
+There's a telnet server on port 23, giving a login prompt. Other devices using this SoC (Hi3518)
+run linux, and that may be the case here as well.
+
+I've found no UART or JTAG on the motherboard.
+
+Net dumps show an amazing amount of outgoing traffic from the camera, connecting to
+  http://www.jovetech.com/down/YST/SW/yst_usa.txt
+to fetch a server list. The device then connects to all these addresses/ports and sends
+mostly static information. Occasionally, a small JSON-formatted payload is sent,
+that includes the device's serial number (i.e. the default admin password)

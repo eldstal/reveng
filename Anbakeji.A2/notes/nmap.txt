@@ -1,0 +1,13 @@
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2016-02-20 19:18 CET
+Nmap scan report for anba (192.168.52.53)
+Host is up (0.0072s latency).
+Not shown: 995 closed ports
+PORT     STATE SERVICE
+23/tcp   open  telnet
+80/tcp   open  http
+554/tcp  open  rtsp
+8099/tcp open  unknown
+9101/tcp open  jetdirect
+
+Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
