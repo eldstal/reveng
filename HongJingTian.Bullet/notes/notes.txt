@@ -1,0 +1,9 @@
+Video is presented either through RTSP (?) via a broken flash plugin (doesn't attempt to load the actual plugin)
+or as a JPEG image (the mobile interface) on http://192.168.52.54/tmpfs/auto.jpg
+
+Device presents HTTP authentication query on all access to the web interface.
+Supplying a very long username (~100 characters) forces the device to reboot.
+
+
+
+
