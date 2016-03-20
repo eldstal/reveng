@@ -1,0 +1,14 @@
+The camera exposes an HTTP server on port 81.
+Default admin password is empty, username "admin"
+
+The camera provides an OCX control for the PC interface and a streaming JPEG for "mobile"
+http://xxcam:81/snapshot.cgi?user=admin&pwd=
+The GET parameters aren't necessary if previous HTTP authentication was successful.
+
+The camera has a device ID written as admin password on the bottom label, but it isn't used in the default web interface.
+
+
+The camera exposes a telnet interface, with credentials root:123456
+(thanks to http://liken.otsoa.net/blog/?x=entry:entry140322-183809 )
+
+
