@@ -1,0 +1,533 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2016.03.23 19:32:35 =~=~=~=~=~=~=~=~=~=~=~=
+
+
+U-Boot 1.1.3 (Oct 31 2012 - 23:46:19)
+
+Board: Ralink APSoC DRAM:  32 MB
+relocate_code Pointer at: 81fb4000
+sysctl:40200300
+spi_wait_nsec: 42 
+spi device id: ef 40 17 0 0 (40170000)
+find flash: W25Q64BV
+raspi_read: from:30000 len:1000 
+.raspi_read: from:30000 len:1000 
+.============================================ 
+Ralink UBoot Version: 3.5.3.0
+-------------------------------------------- 
+ASIC 5350_MP (Port5<->None)
+DRAM_CONF_FROM: Boot-Strapping 
+DRAM_TYPE: SDRAM 
+DRAM_SIZE: 256 Mbits
+DRAM_WIDTH: 16 bits
+DRAM_TOTAL_WIDTH: 16 bits
+TOTAL_MEMORY_SIZE: 32 MBytes
+Flash component: SPI Flash
+Date:Oct 31 2012  Time:23:46:19
+============================================ 
+icache: sets:256, ways:4, linesz:32 ,total:32768
+dcache: sets:128, ways:4, linesz:32 ,total:16384 
+
+ ##### The CPU freq = 360 MHZ #### 
+ estimate memory size =32 Mbytes
+
+Please choose the operation: 
+   1: Load system code to SDRAM via TFTP. 
+   2: Load system code then write to Flash via TFTP. 
+   3: Boot system code via Flash (default).
+   4: Entr boot command line interface.
+   7: Load Boot Loader code then write to Flash via Serial. 
+   9: Load Boot Loader code then write to Flash via TFTP. 
+ 0 
+   
+3: System Boot system code via Flash.
+## Booting image at bc050000 ...
+raspi_read: from:50000 len:40 
+.   Image Name:   Linux Kernel Image
+   Created:      2012-11-16   2:03:25 UTC
+   Image Type:   MIPS Linux Kernel Image (lzma compressed)
+   Data Size:    4112320 Bytes =  3.9 MB
+   Load Address: 80000000
+   Entry Point:  802f9000
+raspi_read: from:50040 len:3ebfc0 
+...............................................................   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+No initrd
+## Transferring control to Linux (at address 802f9000) ...
+## Giving linux memsize in MB, 32
+
+Starting kernel ...
+
+
+LINUX started...
+
+ THIS IS ASIC
+Linux version 2.6.21 (root@mailzxh-desktop) (gcc version 3.4.2) #636 Fri Nov 16 10:03:21 CST 2012
+
+ The CPU feqenuce set to 360 MHz
+CPU revision is: 0001964c
+Determined physical RAM map:
+ memory: 02000000 @ 00000000 (usable)
+Built 1 zonelists.  Total pages: 8128
+Kernel command line: console=ttyS1,57600n8 root=/dev/mtdblock5
+Primary instruction cache 32kB, physically tagged, 4-way, linesize 32 bytes.
+Primary data cache 16kB, 4-way, linesize 32 bytes.
+Synthesized TLB refill handler (20 instructions).
+Synthesized TLB load handler fastpath (32 instructions).
+Synthesized TLB store handler fastpath (32 instructions).
+Synthesized TLB modify handler fastpath (31 instructions).
+Cache parity protection disabled
+cause = 6080806c, status = 11000000
+PID hash table entries: 128 (order: 7, 512 bytes)
+calculating r4koff... 00057e40(360000)
+CPU frequency 360.00 MHz
+Using 180.000 MHz high precision timer.
+Dentry cache hash table entries: 4096 (order: 2, 16384 bytes)
+Inode-cache hash table entries: 2048 (order: 1, 8192 bytes)
+Memory: 29220k/32768k available (2644k kernel code, 3548k reserved, 395k data, 124k init, 0k highmem)
+Mount-cache hash table entries: 512
+NET: Registered protocol family 16
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+NET: Registered protocol family 2
+Time: MIPS clocksource has been installed.
+IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+TCP bind hash table entries: 1024 (order: 0, 4096 bytes)
+TCP: Hash tables configured (established 1024 bind 1024)
+TCP reno registered
+deice id : ef 40 17 0 0 (40170000)
+W25Q64BV(ef 40170000) (8192 Kbytes)
+mtd .name = raspi, .size = 0x00800000 (8M) .erasesize = 0x00010000 (64K) .numeraseregions = 0
+Creating 8 MTD partitions on "raspi":
+0x00000000-0x00800000 : "ALL"
+0x00000000-0x00030000 : "Bootloader"
+0x00030000-0x00040000 : "Config"
+0x00040000-0x00050000 : "Factory"
+0x00050000-0x00150000 : "Kernel"
+0x00150000-0x00480000 : "RootFS"
+0x00480000-0x00780000 : "sys"
+0x00780000-0x00800000 : "param"
+Load Ralink DFS Timer Module
+RT3xxx EHCI/OHCI init.
+squashfs: version 3.2-r2 (2007/01/15) Phillip Lougher
+squashfs: LZMA suppport for slax.org by jro
+JFFS2 version 2.2. (NAND) (C) 2001-2006 Red Hat, Inc.
+io scheduler noop registered (default)
+gpiomode:404059 addr:b0000000 by zqh
+gpiomode:404059 by zqh1
+Ralink gpio driver initialized
+Enable Ralink GDMA Controller Module 
+GDMA IP Version=2
+i2cdrv_major = 218
+HDLC line discipline: version $Revision: 1.1.1.1 $, maxframe=4096
+N_HDLC line discipline registered.
+Ralink APSoC Hardware Watchdog Timer
+Serial: 8250/16550 driver $Revision: 1.7 $ 2 ports, IRQ sharing disabled
+serial8250: ttyS0 at I/O 0xb0000500 (irq = 37) is a 16550A
+serial8250: ttyS1 at I/O 0xb0000c00 (irq = 12) is a 16550A
+loop: loaded (max 8 devices)
+rdm_major = 254
+MAC_ADRH -- : 0x00000000
+MAC_ADRL -- : 0x00000000
+Ralink APSoC Ethernet Driver Initilization. v2.0  256 rx/tx descriptors allocated, mtu = 1500!
+NAPI enable, weight = 0, Tx Ring = 256, Rx Ring = 256
+MAC_ADRH -- : 0x0000000a
+MAC_ADRL -- : 0xeb4b9f8f
+PROC INIT OK!
+PPP generic driver version 2.4.2
+PPP BSD Compression module registered
+NET: Registered protocol family 24
+PPPoL2TP kernel driver, V0.17
+PPTP driver version 0.8.1
+tun: Universal TUN/TAP device driver, 1.6
+tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+Linux video capture interface: v2.00
+ === SONiX UVC Like Driver(H264) Initial ===
+usbcore: registered new interface driver uvcvideo
+USB Video Class driver (v0.1.0_SONiX_v2.6.24.03)
+block2mtd: version $Revision: 1.1.1.1 $
+usbmon: debugfs is not available
+rt3xxx-ehci rt3xxx-ehci: Ralink EHCI Host Controller
+rt3xxx-ehci rt3xxx-ehci: new USB bus registered, assigned bus number 1
+rt3xxx-ehci rt3xxx-ehci: irq 18, io mem 0x101c0000
+rt3xxx-ehci rt3xxx-ehci: USB 0.0 started, EHCI 1.00, driver 10 Dec 2004
+usb usb1: configuration #1 chosen from 1 choice
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+rt3xxx-ohci rt3xxx-ohci: RT3xxx OHCI Controller
+rt3xxx-ohci rt3xxx-ohci: new USB bus registered, assigned bus number 2
+rt3xxx-ohci rt3xxx-ohci: irq 18, io mem 0x101c1000
+usb usb2: configuration #1 chosen from 1 choice
+hub 2-0:1.0: USB hub found
+hub 2-0:1.0: 1 port detected
+Initializing USB Mass Storage driver...
+usb 1-1: new high speed USB device using rt3xxx-ehci and address 2
+usb 1-1: configuration #1 chosen from 1 choice
+hub 1-1:1.0: USB hub found
+hub 1-1:1.0: 4 ports detected
+usb 1-1.1: new high speed USB device using rt3xxx-ehci and address 3
+usb 1-1.1: configuration #1 chosen from 1 choice
+uvcvideo: Found UVC 1.00 device USB2.0 Camera (058f:3841)
+uvcvideo: Failed to query (1) UVC control 1 (unit 4) : -145 (exp. 4).
+uvcvideo: Failed to query (1) UVC control 1 (unit 3) : -32 (exp. 4).
+usb 1-1.4: new high speed USB device using rt3xxx-ehci and address 4
+usb 1-1.4: configuration #1 chosen from 1 choice
+scsi0 : SCSI emulation for USB Mass Storage devices
+usbcore: registered new interface driver usb-storage
+USB Mass Storage support registered.
+Advanced Linux Sound Architecture Driver Version 1.0.14rc3 (Wed Mar 14 07:25:50 2007 UTC).
+ALSA device list:
+  No soundcards found.
+nf_conntrack version 0.5.0 (256 buckets, 131072 max)
+ip_tables: (C) 2000-2006 Netfilter Core Team, Type=Restricted Cone
+TCP cubic registered
+NET: Registered protocol family 1
+NET: Registered protocol family 10
+NET: Registered protocol family 17
+802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+All bugs added by David S. Miller <davem@redhat.com>
+VFS: Mounted root (squashfs filesystem) readonly.
+Freeing unused kernel memory: 124k freed
+init started: BusyBox v1.12.1 (2012-11-16 09:58:14 CST)
+starting pid 19, tty '': '/etc_ro/rcS'
+Algorithmics/MIPS FPU Emulator v1.5
+devpts: called with bogus options
+mount: mounting none on /proc/bus/usb failed: No such file or directory
+Welcome to
+     _______  _______  ___     __  ____   _  _   ___
+    |  ___  \|   __  ||   |   |__||    \ | || | /  /
+    | |___| ||  |__| ||   |__  __ |     \| || |/  /
+    |   _   /|   _   ||      ||  || |\     ||     \
+    |__| \__\|__| |__||______||__||_| \____||_|\___\
+
+   	             =System Architecture Department=
+
+gpio open
+ralink gpio release by zqh
+clr gpio
+starting pid 35, tty '/dev/ttyS1': '/bin/sh'
+
+
+BusyBox v1.12.1 (2012-11-16 09:58:14 CST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+# Started WatchDog Timer.
+zqh socket fd=3
+zqh bind(6666) address successful!
+zqh socket fd=3
+zqh bind(6666) address successful!
+ InitSystemParam 0
+=========================read system param from file==================================
+mac:00:01:00:00:DB:FE 30
+wifimac:00:01:00:00:DB:FF 30
+wifimac:00:01:00:00:DB:FF
+ie param ppid 39
+ie param ppid 42
+daemon:===== wifi.c, line 71, WifiConfig():	SSID=ChinaNet
+daemon:===== wifi.c, line 347, WifiDriversInit():	insmod From kernal
+scsi 0:0:0:0: Direct-Access     Multi    Flash Reader     1.00 PQ: 0 ANSI: 0
+sd 0:0:0:0: Attached scsi removable disk sda
+rt2860v2_sta: module license 'unspecified' taints kernel.
+
+
+=== pAd = c0095000, size = 534784 ===
+
+<-- RTMPAllocAdapterBlock, Status=0
+daemon:===== wifi.c, line 355, WifiDriversInit():	[insmod /lib/modules/2.6.21/kernel/drivers/netRX DESC a1e35000  size = 2048
+/wireless/rt2860v2_sta/rt2860v2_sta.ko mac=00:01<-- RTMPAllocTxRxRingMemory, Status=0
+:00:00:DB:FF] OK
+Key1Str is Invalid key length(0) or Type(0)
+Key2Str is Invalid key length(0) or Type(0)
+Key3Str is Invalid key length(0) or Type(0)
+Key4Str is Invalid key length(0) or Type(0)
+1. Phy Mode = 9
+2. Phy Mode = 9
+3. Phy Mode = 9
+MCS Set = ff 00 00 00 01
+<==== rt28xx_init, Status=0
+0x1300 = 00064300
+EthMacInit2
+MAC_ADRH -- : 0x00000001
+MAC_ADRL -- : 0x0000dbfe
+EthMacInit3
+
+phy_tx_ring = 0x01fab000, tx_ring = 0xa1fab000
+
+phy_rx_ring0 = 0x01fac000, rx_ring0 = 0xa1fac000
+RT305x_ESW: Link Status Changed
+RT305x ESW status:a190a110
+EthMacInit4
+switch reg write offset=14, value=5555
+switch reg write offset=40, value=1001
+switch reg write offset=44, value=1001
+switch reg write offset=48, value=1001
+switch reg write offset=4c, value=1
+switch reg write offset=50, value=2001
+switch reg write offset=70, value=ffffffff
+switch reg write offset=98, value=7f7f
+switch reg write offset=e4, value=7f
+done.
+EthMacInit5
+EthMacInit5
+switch reg write offset=14, value=5555
+switch reg write offset=40, value=1001
+switch reg write offset=44, value=1001
+switch reg write offset=48, value=1001
+switch reg write offset=4c, value=1
+switch reg write offset=50, value=2001
+switch reg write offset=70, value=ffffffff
+switch reg write offset=98, value=7f7f
+switch reg write offset=e4, value=7f
+done.
+eth is start
+=====InitNetDrivers=======
+daemon:===== network.c, line 385, DnsConfig():	Save to File, 1 = [192.168.52.1]
+daemon:===== network.c, line 386, DnsConfig():	Save to File, 2 = [8.8.8.8]
+pid 32
+NetThreadProc
+netstatsem post
+Daemon...=======network change=======
+Daemon...netok -1 link 2
+net is work on eth
+enter ethernet  dhcp mode
+route: ioctl 0x890c failed: No such process
+EthStart1
+route: ioctl 0x890c failed: No such process
+EthStart2
+EthStart3
+route: ioctl 0x890b failed: Network is unreachable
+EthStart4
+EthStart5
+netstatsem post end
+start app update thread
+start sys update thread
+=======mac=======
+00-01-00-00-db-fe-
+zqh socket fd=7
+zqh bind(9123) address successful!
+ipc param ppid 36
+update socket init
+update Socket proc is start
+=========================read alarm param=========================(1)
+mkdosfs 2.11 (12 Mar 2005)
+/dev/sda: No medium found
+==== sysparam.c      , line  570, InitSystemParam         :read system.ini
+==== sysparam.c      , line  650, SaveSystemParam         :***************SaveSystemParam*******************
+user1: , pwd1: 
+user2: , pwd2: 
+user3: admin, pwd3: 
+==== ipc.c           , line  844, IPCInit                 :IPCi2s enable:1
+Init start
+zqh work in slave
+audiohw_preinit by zqh
+12Mhz
+socket fd=4
+zqhgpio open
+ bind(8832) address successful!
+zqh socket fd=5
+zqh bind(6666) address successful!
+zqh socket fd=8
+zqh bind(8813) address successful!
+zqh socket fd=9
+zqh bind(8822) address successful!
+zqh socket fd=10
+zqh bind(8832) address successful!
+==== ipc.c           , line  853, IPCInit                 :IPCInit end
+==== ipc.c           , line  858, IPCThread               :IPCTHread start
+ie param ppid 127
+==== ipc.c           , line  867, IPCThread               :IPCTHread end
+mac:00:01:00:00:DB:FE 30
+wifimac:00:01:00:00:DB:FF 30
+wifimac:00:01:00:00:DB:FF
+sys_ver 4c020015
+write date ok
+curtime 1458757381
+ie param ppid 127
+killall: udhcpc: no process killed
+Ethnet Dhcp
+udhcpc (v1.12.1) started
+Sending select for 192.168.52.55...
+Lease of 192.168.52.55 obtained, lease time 86400
+==== encrypt.c       , line  822, CheckAudioChip          :=============Audio Chip = WM8988!!!!!!!
+deleting routers
+route: ioctl 0x890c failed: No such process
+adding dns 8.8.8.8
+adding dns 8.8.4.4
+adding dns 192.168.52.1
+==== encrypt.c       , line  905, CheckAudioChip          :@@@@@@@@@@@@@@@@@@ Init 8988 @@@@@@@@@@@@@@@@@@@@@@
+==== encrypt.c       , line  919, CheckAudioChip          :@@@@@@@@@@@@@@@@@@@ Init 8988 over @@@@@@@@@@@@@@@@@@@@@@@@
+==== encrypt.c       , line  973, CheckAudioChip          :=============Audio Chip is ok
+
+dhcp is start...=0
+daemon:===== network.c, line 602, DhcpStart():	Set DNS 1 and 2 to NULL
+daemon:===== network.c, line 628, DhcpStart():	2 = []
+daemon:===== network.c, line 633, DhcpStart():	Change DNS2[0] = 8
+daemon:===== network.c, line 633, DhcpStart():	Change DNS2[1] = .
+daemon:===== network.c, line 633, DhcpStart():	Change DNS2[2] = 8
+daemon:===== network.c, line 633, DhcpStart():	Change DNS2[3] = .
+daemon:===== network.c, line 633, DhcpStart():	Change DNS2[4] = 8
+daemon:===== network.c, line 633, DhcpStart():	Change DNS2[5] = .
+daemon:===== network.c, line 633, DhcpStart():	Change DNS2[6] = 8
+daemon:===== network.c, line 646, DhcpStart():	1 = []
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[0] = 8
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[1] = .
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[2] = 8
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[3] = .
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[4] = 4
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[5] = .
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[6] = 4
+daemon:===== network.c, line 646, DhcpStart():	1 = [8.8.4.4]
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[0] = 1
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[1] = 9
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[2] = 2
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[3] = .
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[4] = 1
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[5] = 6
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[6] = 8
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[7] = .
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[8] = 5
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[9] = 2
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[10] = .
+daemon:===== network.c, line 651, DhcpStart():	Change DNS1[11] = 1
+daemon:===== network.c, line 661, DhcpStart():	1 = [192.168.52.1]
+daemon:===== network.c, line 662, DhcpStart():	2 = [8.8.8.8]
+run route by zqh
+=======mac=======
+00-01-00-00-db-fe-
+audio capture:163
+==== main.c          , line   99, Resourceinit            :*******************Resourceinit end*************************
+==== stream.c        , line  594, VideoEnable             :---VideoEnable(bysize=0)---Initing...
+length: 921600 offset: 0
+Buffer mapped at address 0x2af83000.
+length: 921600 offset: 921600
+Buffer mapped at address 0x2b064000.
+video_enable
+video enable
+video enable ok
+gate way:0.0.0.0         192.168.52.1    0.0.0.0         UG    0      0        0 eth2
+
+daemon:===== network.c, line 385, DnsConfig():	Save to File, 1 = [192.168.52.1]
+daemon:===== network.c, line 386, DnsConfig():	Save to File, 2 = [8.8.8.8]
+--------------SaveSystemParam----------
+bparam.stNetParam.szIpAddr = 192.168.52.55
+init capture ok
+capture video:175
+Socket proc is start pid=179
+send live jpeg:180
+send live jpeg:181
+send live jpeg:182
+send live jpeg:183
+send video jpeg:184
+send video jpeg:185
+send video jpeg:186
+send video jpeg:187
+==== ipc.c           , line  741, NetThreadproc           :param.cmd=1(1--eth2, 2-wifi, 0--update param)
+sys_ver 4c020015
+==== sysparam.c      , line  650, SaveSystemParam         :***************SaveSystemParam*******************
+send live audio:190
+send live audio:191
+send live audio:192
+send live audio:193
+AudioPlayProc:194
+send record file:195
+link:2 status:2
+send record file:198
+send record file:199
+send record file:200
+upnpc : miniupnpc library test client. (c) 2006-2010 Thomas Bernard
+Go to http://miniupnp.free.fr/ or http://miniupnp.tuxfamily.org/
+for more information.
+start gpio check
+start motion check
+start alarm proc
+==== dns.c           , line  179, DnsSendAlarmProc        :start alarm to DNS server...
+
+web pid:219
+init thread ok
+==== moto-new.c      , line 5404, InitMoto                :Init, alarminhappen = 1
+==== moto-new.c      , line 2039, GetVertTime             :get vertime 64
+
+==== moto-new.c      , line 5627, MotoThreadStart         :=========Start, verttime = 64, maxverttime=160======
+==== moto-new.c      , line 1703, GetLevelTime            :get levelime 265
+
+[Biz_API.cpp 第 2728 行 ]; pkt_recvTh start!!
+[Biz_API.cpp 第 2741 行 ]; pkt_recvTh start sucessfully!!
+[Biz_API.cpp 第 2751 行 ]; sendThread start!!!
+[Biz_API.cpp 第 2764 行 ]; sendThread create success!!!
+[Biz_API.cpp 第 2774 行 ]; timerThread start!!!
+[Biz_API.cpp 第 2787 行 ]; timerThread create success!!!
+List of UPNP devices found on the network :
+ desc: http://192.168.52.52:80/description.xml
+ st: urn:schemas-upnp-org:device:basic:1
+
+ desc: http://192.168.52.52:80/description.xml
+ st: uuid:2f402f80-da50-11e1-9b23-0017881a47eb
+
+ desc: http://192.168.52.52:80/description.xml
+ st: upnp:rootdevice
+
+UPnP device found. Is it an IGD ? : http://192.168.52.52:80/
+Trying to continue anyway
+Local LAN ip address : 192.168.52.55
+GetExternalIPAddress failed.
+GetSpecificPortMappingEntry() failed with code -1 (Miniupnpc Unknown Error)
+==== network.c       , line 3439, Networkhread            :Create Thread WfiCheckProc
+iRet 0 upnp:/system/system/bin/upnpc-static -a 192.168.52.55 81 81 TCP
+iRet 0
+==== capture.c       , line  399, SetContrast             :size iRet=0 value=16
+sat1
+sat2
+==== video.c         , line  989, VideoParamInit          :--------------VideoParamInit----------
+==== video.c         , line 1054, VideoParamInit          :not  CHANGE_VIDEO_MIRROR 
+set mirr flip=2
+==== video.c         , line 1133, VideoParamInit          :set mirr flip, Param = 2, Saturation = 2
+
+sat1
+sat2
+write 5020
+==== main.c          , line  270, main                    :SystemVerion==================[ 76.2.0.21 ]==============
+write 5020
+get main thread param
+--------------SaveSystemParam----------
+bparam.stNetParam.szIpAddr = 192.168.52.55
+==== encrypt.c       , line 1175, CheckEncryptProc        :check encrypt OK
+==== ipc.c           , line  741, NetThreadproc           :param.cmd=1(1--eth2, 2-wifi, 0--update param)
+sys_ver 4c020015
+==== sysparam.c      , line  650, SaveSystemParam         :***************SaveSystemParam*******************
+get main thread param
+==== dns.c           , line 1194, FactoryRegisterProc     :Start FactoryRegisterProc
+========version:9011520===========
+========DeviceID:XXC-118265-AFDEC=========
+==== moto-new.c      , line 5521, MotoCentProc            :=====moto is start=====
+
+==== moto-new.c      , line 5522, MotoCentProc            :moto start, read moto sit
+==== moto-new.c      , line 5523, MotoCentProc            :presend = 0, speed = 10
+==== moto-new.c      , line 5530, MotoCentProc            :Set Moto to Center-----
+==== moto-new.c      , line 4594, SendMotoCmd             :Motocmd=0
+start run ddns
+iRet 0
+bFlagInternet 1
+bFlagHostResolved 1
+bFlagServerHello 1
+NAT_Type 2
+PPPP_Share_Bandwidth(1) iRet 0
+def key proc
+==== ntp.c           , line   86, get_udp_arrival_local_timestamp:local time=>Wed Mar 23 18:23:56 2016
+
+
+==== ntp.c           , line  118, get_new_time            :server time=>Wed Mar 23 18:33:13 2016
+
+
+==== ntp.c           , line  137, set_local_time          :Set NEW Time
+session failed!!,cause is -3
+write date ok
+externwifistatus=1
+==== moto-new.c      , line 3671, MotoCenter              :------verttime = 0
+==== moto-new.c      , line 3707, MotoCenter              :==========Will Center, verttime = 160
+dircnt 64 verttime 160
+===onstart===1
+on start = 0
+
+# 
