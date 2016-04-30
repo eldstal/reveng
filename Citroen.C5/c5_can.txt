@@ -1,0 +1,305 @@
+ID    DLC   Description
+036   8     Power saving status?
+0A4   6-8   RDS text
+0B6   8     Engine indicators?
+0DF   3     Console display reinit?
+0F6   8     Drive indicators?
+115   4     Driver's door control panel
+128   8     Console/Instrumentation indicators
+14C   5     Door warnings
+167   8     Wiper command
+1A5   1     Volume (E0=mute)
+1A8   8     Cruise control stalk
+1E3   7     Climate control state
+1E5   7     Audio Source?
+18C   2     Door lock event
+217   8     Instrumentation config
+21F   3     Steering wheel audio controls
+221   7     Steering wheel display controls
+265   4     Radio state
+2A5   8     RDS station name
+2E1   3     Ignition state?
+2D5   1     Front left window
+355   2     Front right window
+321   4     Ride height change event
+365   5     CD identifier
+3E5   6     RD4 console buttons
+
+
+036   Power saving status?
+8 bytes
+  Bute 2:
+    Bit 0:  Economy mode (power-saving) enabled
+  Byte 3:
+    Bit 2:  Console/instrument backlight ON
+
+  
+
+0A4   RDS text
+6-8 bytes
+Text is transmitted as segments of a long line of text that is scrolled.
+the same frame identifier is used for all segments, with an index in the first byte.
+  Byte 0: Text segment index. 0x05, 0x10, 0x21-0x29.
+  Byte 1-8: Text for the segment
+
+0B6   Engine indicators?
+8 bytes
+  Byte 0: Rev counter, MSB
+  Byte 1: Rev counter, LSB
+
+0DF Display reinit?
+3 bytes
+  0x10 0x00 0x50: Normal operation
+  0x90 0x00 0x70: Set display dark or display off
+
+0F6   Drive indicators?
+8 bytes
+  Byte 1:
+    Counts down with increased revs.
+  Byte 7:
+    Bit 0: Reverse gear indicator
+
+115   Driver's door control panel
+4 bytes
+  Byte 0: Mirror controls
+    Bit 0: Right
+    Bit 1: Left
+    Bit 2: Up
+    Bit 3: Down
+    Bit 5: Mirror switch left
+    Bit 6: Mirror switch right
+    Bit 7: Mirror switch center (Mirror buttons disabled)
+
+  Byte 1: Front window control
+    First nibble: Front-right window control
+      0x3: Full up
+      0x1: Half up
+      0x8: Half down
+      0xC: Full down
+
+  Byte 2: Rear window control
+    First nibble: Rear-right window control
+      0x3: Full up
+      0x1: Half up
+      0x8: Half down
+      0xC: Full down
+
+    Second nibble: Rear-left window control
+      0x3: Full up
+      0x1: Half up
+      0x8: Half down
+      0xC: Full down
+
+  Byte 3: Additional switches
+    Bit 0: Window control lock enabled
+
+128   Console/instrumentation indicators
+8 bytes
+  Byte 0:
+    Bit 1: Driver's seat belt indicator
+    Bit 2: Parking brake indicator
+    Bit 6: Front passenger seat belt indicator
+
+  Byte 1:
+    Bit 0: SERVICE indicator
+    Bit 4: Door open indicator
+    Bit 7: Rear passenger seat belt indicator
+
+  Byte 2:
+    Bit 3: ESP OFF indicator
+    Bit 6: Console Hazard indicator
+
+  Byte 4:
+    Bit 1: Dipped beam indicator
+    Bit 2: High beam indicator
+    Bit 3: Front foglight indicator
+    Bit 4: Rear foglight indicator
+    Bit 5: Right turn signal indicator
+    Bit 6: Left turn signal indicator
+
+14C   Door open indicators
+5 bytes
+  Byte 0:
+    Bit 0: Front-left door open
+    Bit 1: Front-right door open
+    Bit 2: Rear-left door open
+    Bit 3: Rear-right door open
+  Byte 1:
+    Bit 0: Boot open
+
+167   Wiper/Washer command
+8 bytes
+  Bytes 4-5: Wiper/washer command
+    0x00 0x00: No recent command
+    0x80 0xDF: Front/Rear window washer
+    0x81 0x2F: Automatic windscreen wiper enable
+    0x81 0x30: Automatic windscreen wiper disable
+
+18C   Door lock event
+Frame sent both for console lock button and lock/unlock from remote control
+and automatic lock if doors haven't been opened after remote unlock.
+2 bytes
+  Byte 0: Button press event
+    0x00: No event
+    0x11: Unlock event
+    0x22: Lock event
+
+1A8   Cruise control stalk
+8 bytes
+  Byte 0:
+    Bit 0:  Speed limiter selected
+    Bit 1:  Cruise control selected
+  Byte 1: Set speed, MSB
+  Byte 2: Set speed, LSB
+    0x0BB8: 30km/h
+    0x0C1C: 31
+    0x0C80: 32
+    0x0CE4: 33
+    0x0D48: 34
+    ...
+    0x1B58: 70
+    0x1F40: 80
+    0x20D0: 84
+    0x2710: 100
+
+1E3   Climate control state
+7 bytes
+  Byte 0:
+    Bit 0:  Air circulation ENABLED
+    Bit 2:  Fan OFF
+    Bit 4:  AUTO (both zones)
+  Byte 1:
+    Bit 0:  Windscreen defrost ENABLED
+    Bit 4:  Rear window defrost BUTTON EVENT
+  Byte 2: Left zone temperature
+  Byte 3: Right zone temperature
+    Bit 1: TEMP+ button pressed at MAX
+    Bit 2: TEMP- button pressed at MIN
+    0x00: MIN
+    0x01: 14 degrees
+    0x02: 15 degrees
+    ...
+    0x05: 18 degrees
+    0x06: 18.5 degrees
+    ...
+    0x10: 23.5 degrees
+    0x11: 24 degrees
+    0x12: 25 degrees
+    ...
+    0x15: 28 degrees
+    0x16: MAX
+  Byte 4: Left zone air flow
+  Byte 5: Right zone air flow
+    0x00: AUTO
+    0x20: Feet
+    0x30: Face
+    0x40: Windscreen
+    0x50: Feet + Face
+    0x60: Feet + Windscreen
+    0x80: Feet + Face + Windscreen
+  Byte 6: Fan speed
+    0x0: Lowest speed
+    ...
+    0x7: Highest speed
+    0xF: Fan off
+
+1E5   Audio Source?
+7 bytes
+  byte 2:
+    0x3F: CD
+    0x41: AUX
+    0x44: Radio
+  byte 4:
+    0x44: CD, AUX
+    0x46: Radio
+  byte 6:
+    0x0F: CD, Radio
+    0x17: AUX
+
+217   Instrumentation config
+8 bytes
+  First nibble: Console brightness
+    0x0: Minimum
+    0xF: Maximum
+
+21F   Steering wheel audio controls
+3 bytes
+  Bit 0:  NEXT
+  Bit 1:  PREV
+  Bit 4:  VOL+
+  Bit 5:  VOl-
+  Bit 6:  SRC
+  Bits 7-15: Preset (changed by rotating the rocker wheel)
+
+
+221   Steering wheel display controls
+  Bit 4:  Steering wheel tab selector (<< on wiper stalk)
+
+265   Radio state
+  Bit 3: Radio TA (Traffic announcement) enabled
+
+2E1   Ignition state ?
+  Bit 2: Ignition ON ?
+
+2D5   Front left window
+1 byte
+355   Front right window
+2 bytes
+  First nibble: Window position
+    0x3: Stopped up
+    0x2: Nearly closed
+    0x6:
+    0x4:
+    0xC: Mid-stroke
+    0x8: Nearly closed or closed
+    0x1: Auto-up stopped.
+  Second nibble: Movement
+    0x8: Rolling down
+    0x4: Rolling up
+
+321   Ride height change event
+4 bytes
+  Byte 0: Ride height state:
+    0x40:   Stopped at highest level
+    0x81:   Moving Up
+    0x90:   Moving Up
+    0x60:   Moving Down
+    0x48:   Moving Down x2
+    0x42:   Moving down x3
+    0x10:   Stopped at second-highest level
+    0x84:   Moving up x2
+    0x24:   Moving up
+    0x18:   Moving down
+    0x12:   Moving down x2
+    0x04:   Stopped at drive level
+    0x81:   Moving up x3
+    0x21:   Moving up x2
+    0x09:   Moving up
+    0x06:   Moving down
+    0x01:   Stopped at lowest level
+
+365   CD identifier
+5 bytes
+  Bytes 0-2: CD ID
+    0xFF 0xFF 0xFF: No CD present
+    Other values: CD identifier
+
+3E5   RD4 console buttons
+6 bytes
+  Byte 0:
+    Bit 1: MENU
+    Bit 3: TEL
+    Bit 7: CLIM
+  Byte 1:
+    Bit 1: TRIP
+    Bit 7: AUDIO
+  Byte 2:
+    Bit 1: OK
+    Bit 3: ESC
+  Byte 5:
+    Bit 1: UP (Only sent in menu?)
+    Bit 3: DOWN (Only sent in menu?)
+    Bit 4: RIGHT (Only sent in menu?)
+    Bit 7: LEFT (Only sent in menu?)
+    
+
