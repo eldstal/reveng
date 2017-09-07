@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/DVR_packshop/!svn/ver/5605/Branches/P_2012.10.23_packshop_DM812X_IPC/src/s2lm/etc/ppp
+END
+pppoe-redial_time
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/DVR_packshop/!svn/ver/5605/Branches/P_2012.10.23_packshop_DM812X_IPC/src/s2lm/etc/ppp/pppoe-redial_time
+END
+pap-secrets
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/DVR_packshop/!svn/ver/5605/Branches/P_2012.10.23_packshop_DM812X_IPC/src/s2lm/etc/ppp/pap-secrets
+END
+pppoesessionctx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/DVR_packshop/!svn/ver/5605/Branches/P_2012.10.23_packshop_DM812X_IPC/src/s2lm/etc/ppp/pppoesessionctx
+END
+pppoe-enable
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/DVR_packshop/!svn/ver/5605/Branches/P_2012.10.23_packshop_DM812X_IPC/src/s2lm/etc/ppp/pppoe-enable
+END
+options
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/DVR_packshop/!svn/ver/5605/Branches/P_2012.10.23_packshop_DM812X_IPC/src/s2lm/etc/ppp/options
+END
+pppoe-start
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/DVR_packshop/!svn/ver/5605/Branches/P_2012.10.23_packshop_DM812X_IPC/src/s2lm/etc/ppp/pppoe-start
+END

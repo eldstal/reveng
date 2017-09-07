@@ -1,0 +1,148 @@
+﻿[PlayFunc]
+
+//是否显示自动注册,1:显示,0:不显,默认:不显示
+show_auto_register = 1
+
+//串口设置是否显示,1:显示,0:不显,默认:不显示
+show_comm_config = 0
+
+//SNMP设置是否显示,1:显示,0:不显,默认:显示
+show_SNMP_config = 1
+
+//728WP型部分设备I帧间隔始终为12，1:I帧间隔按原先逻辑,0:I帧间隔12,默认:1
+special_GOP_728WP = 1
+
+//ATM叠加是否显示，1:显示,0:不显,默认不显示
+show_ATM_config = 0
+
+//是否显示网络存储部分内容,1:显示,0:不显,默认:不显示
+show_NAS_config = 1
+
+//是否显示设备类型,1:显示,0:不显,默认:显示
+show_Device_type = 0
+
+//是否是k6设备,1:是,0:不是,默认:不是
+is_k6_DeviceType = 0
+
+//是否显示设备发现是否是否使能 ，1:显示,0:不显示,默认不显示
+is_show_startDeviceDiscover = 0
+
+//是否显示UPNP模式，1:显示,0:不显示,默认显示
+is_show_upnpMode = 1
+ 
+//是否显示LDAP登录用户选择，1：显示，0：不显示，默认不显示
+is_show_LDAP = 0
+
+//是否显示开启远程日志记录， 1：显示， 0：不显示，默认不显示
+is_show_Syslog = 0
+
+//是否使用mac插件,1:是,0:不是,默认:不是
+use_mac_plugins = 1
+
+//是否开启MP4下载格式,1:是,0:不是,默认:不是
+is_show_MP4DownLoad = 1
+
+// 是否启用VPN证书功能, 1：显示， 0：不显示，默认不显示
+is_show_VPN_Certificate = 0
+
+
+//是否显示抓图码流可选主辅码流模式,1:可选,0:不可选,默认可选
+is_has_SnapFormatAs = 0
+
+//是否显示动检实时监测图,1:显示,0:不显示,默认显示
+is_has_detectPic = 1
+
+// Windows 平台插件的的版本号
+win_plugins_version = 3.0.0.3
+
+// Mac 平台插件的的版本号
+mac_plugins_version = 3.0.0.2
+
+//鼠标控制云台, 1:显示,0:不显示,默认不显示
+is_show_mousecontrolptz = 0
+
+//是不是显示信息标注, 1:显示,0:不显示,默认不显示
+is_show_duck = 1
+
+// 视频动检 默认的灵敏度值
+videodetect_default_sensitive = 58
+
+// 视频动检 默认的面积阈值
+videodetect_default_threshold = 4
+
+// 是否显示 视频设置-视频叠加-地理位置 设置，1:显示, 0: 不显示, 默认不显示
+is_show_LocationInfo = 0
+
+//DHBONJOUR设置是否显示,1:显示,0:不显,默认:显示
+show_bonjour_config = 1
+
+//是否显示HTTPS页面, 1：显示， 0：不显示，默认不显示
+is_show_HTTPS = 1
+
+//是否隐藏PPPoE页面, 1：隐藏，0：不隐藏，
+is_hide_PPPoE = 1
+
+//球机是否开启OSD复用功能（当前使用时包括判断deviceType.contains('SD')），1开启，0关闭；默认开启
+is_show_OSDinfo = 1
+
+//是否开启首页-预览-云台中的坐标显示，1为开启，0关闭；默认0关闭
+is_show_azimuthDisp = 0
+
+// 网络存储需要加载协议，采用掩码控制 100 分别代表 NFS ISCSI SMB
+NAS_Protocol_Mask = 100
+
+// 情景模式是否显示室外模式，1：显示， 0：不显示，默认显示
+is_show_whiteBalanceOutdoor = 1
+
+//8M Flash
+is_8M_Flash = 0
+
+//是否支持P2P
+is_show_T2UServer = 1
+
+//3w和10w曝光时间，第一位表示3w，比如10表示支持3w不支持10w
+is_ExposureSpeed = 11
+
+//是否显示灵敏度和延时
+is_show_ICR = 1
+
+//是否显示地理位置
+is_show_location = 1
+
+//是否显示图片叠加
+is_show_image = 0
+
+//是否显示帮助文档
+is_show_help = 1
+
+//是否显示字体大小
+is_show_fontSize = 0
+
+//是否显示Onvif，默认为显示
+is_show_Onvif = 1
+
+//是否显示国际，默认为显示
+is_show_platform = 0
+
+//区分385智能还是s2，1为385，0为s2；默认385
+is_385_intellent = 1
+
+//是否显示感兴趣区域(roi)，默认显示
+is_show_roi = 0
+
+//是否为watchNet需求，1是，0不是
+is_show_WatchNet = 0
+
+//是否显示事件使能管理页面 默认显示
+is_show_eventManage = 0
+
+//编码页面是否显示报警动检 默认不显示
+is_show_mainStreamType = 0
+
+//是否显示PCM 默认不显示
+is_show_PCM = 0
+
+//是否显示客流量统计的过滤目标 默认不显示
+show_flowrate_target = 1
+//智能交通兼容原来的卡口 默认显示0 
+is_show_plate = 0

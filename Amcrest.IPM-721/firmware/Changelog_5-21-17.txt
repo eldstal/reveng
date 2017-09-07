@@ -1,0 +1,56 @@
+Change log: 
+
+
+Firmware Amcrest_IPC-AWXX_Eng_N_V2.420.AC00.18.R.20170521.bin
+5-21-17
+
+Important Note: In order for the firmware update to be effective, you will need to restore the default settings on your camera once the firmware update is complete. Restoring your camera to default settings will rewrite all of your settings. If you would like to save your current settings, navigate to Setup > System > Import / Export, and use the Export option to export your camera settings. 
+
+After updating your firmware, navigate to Setup > System > Default Settings, and click the "Restore To Default Settings" button to reset your camera and enable the firmware.
+
+Once the camera is reset, you can then import the settings that you previously exported by navigating to Setup > System > Import / Export and using the "Import" option.
+
+1. Fixed an issue with IR lights not being able to be turned off
+2. Fixed an API issue that was causing two way audio to stop working
+3. Fixed an issue when connecting to FTP
+4. Vastly Improved the performance of our Cloud service
+5. Various Security improvements
+6. Various Bug fixes
+
+
+Firmware Amcrest_IPC-AWXX_Eng_N_V2.420.AC00.17.R.20170322.bin
+3-22-17
+
+1. Fixed incorrect time stamp on Email snapshots.
+2. Improved IR control algorithm.
+3. Added "Test" feature to FTP settings.
+4. Fixed several cloud service issues.
+5. Fixed expired SSL certificate issue.
+6. Provided 3rd-party HTTPS certificate support.
+7. Updated file structure for FTP and NAS.
+8. Fixed "Restore settings" not saving.
+9. Fixed some translation issues.
+10. Security improvements.
+
+Note:
+
+1. A hard reset or "Restore to default settings" is required to delete the old system file and enable the new features.
+2. The old footage and snapshots that are stored in the old file structure on FTP or NAS should be backuped manually as the new structure wont be able to overwrite them. Otherwise the storage capacity of FTP or NAS will be limited.
+
+
+Firmware Amcrest_IPC-AWXX_Eng_N_V2.420.AC00.15.R.20160908.bin
+9-8-16
+
+1. Improvements to Email settings 
+	- SMTP server settings have been added for some email service providers.
+2. Security enhancements for cloud service
+3. Optimized Wifi setup process 
+	- Wifi driver has been updated to be more stable and smooth.
+4. Removed outdated Mjpeg Encoding and PPPOE function
+5. Added 10 default presets
+6. Multiple snapshot options for Motion Events
+7. Default recording format is now .MP4 isntead of .dav
+8. Bug fixes
+	- Increased wrong password tries to 30
+	- Improved UPnP mapping
+	- Other internal bugs

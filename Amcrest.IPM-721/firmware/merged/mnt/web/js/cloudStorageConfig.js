@@ -1,0 +1,1 @@
+!function(){define(function(require,a,b){b.exports=require("jsCore/pageTab")}),define("CloudStorageConfig",function(require,a,b){{var c=(require("jsCore/rpc"),require("jsCore/pageBase"));require("jsCore/ability")}b.exports=c.extend({})})}(jQuery);

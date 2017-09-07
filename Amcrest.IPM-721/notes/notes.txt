@@ -1,0 +1,27 @@
+The only user account is root.
+
+A file in the "product" partition's "product.zip" contains default account
+information: admin:admin
+
+Root filesystem is spread over separate flash partitions, mounted in
+/etc/init.d/rcS from the romfs partition:
+
+  /dev/mtdblock6 /mnt/web/
+  /dev/mtdblock10 /mnt/pd/      # Product information
+  mount /dev/mtdblock11 /mnt/custom/  # i18n Translation strings
+  mount /dev/mtdblock7 /usr/          # some lua code, unknown binary /usr/bin/sonia
+  mnt_jffs2 /dev/mtdblock9 /mnt/mtd jffs2   # System configuration referenced by Http config. Not present in firmware image. Initialized by /usr/etc/imod
+  mount /dev/mtdblock14 /mnt/user/    # SD card? Not present in firmware image.
+
+
+The same init script also suggests there is a UART console. Kernel arguments set it up at 115200 baud.
+
+/etc/init.d/appauto (which is invoked by inittab) starts either a user-defined application,
+a serial getty or telnetd.
+
+/usr/etc/app.sh invokes /usr/bin/sonia and reboots if it ever terminates. This binary contains
+colorspace conversion code, so it is at least in charge of image capture. It is possibly also the http daemon.
+
+
+
+
