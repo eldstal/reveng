@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd merged && find . | cpio --quiet -H newc -o | gzip -9 -n > ../target.initrd.gz
