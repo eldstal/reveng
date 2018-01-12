@@ -1,10 +1,13 @@
-struct worker_queue {
-  unsigned int padding;
+#include "queue.h"
+
+struct worker {
+  struct thread thread;
+  unsigned char padding[179];
+  struct queue jobs_q;
+
 };
 
-
-struct worker_thread {
-  unsigned char padding[184];
-  struct worker_queue queue;
-
+struct worker_job {
+  void* func;
+  void* arg;
 };
