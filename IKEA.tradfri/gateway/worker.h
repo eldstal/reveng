@@ -2,7 +2,7 @@
 
 struct worker {
   struct thread thread;
-  unsigned char padding[179];
+  unsigned char padding[176];
   struct queue jobs_q;
 
 };
