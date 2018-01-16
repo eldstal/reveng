@@ -6,9 +6,9 @@ struct thread_list {
   int event_level;
 };
 
-
 struct thread {
-  int v0;
-  void* obj;
+  struct smart_ptr ptr;
+  unsigned char padding[172];
+  void* p1;
 };
 
