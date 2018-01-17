@@ -1,9 +1,11 @@
 #include "queue.h"
 #include "worker.h"
 
+// Size: 12
 struct http_unk_1 {
-  struct smart_ptr ptr;
-  struct http_handler* handler;
+  unsigned char padding0[4];
+  struct http_handler* handler1;
+  struct http_handler* handler2;
 };
 
 struct http_endpoint {
@@ -15,21 +17,23 @@ struct http_endpoint {
   int v4;
 };
 
+// Size: 572
 struct http_server {
-  struct smart_ptr ptr;
-  unsigned char padding0[7];
+  unsigned char padding0[15];
   short int port;
   unsigned char padding5[6];
   struct thread thread;
   struct queue event_q;
   struct worker worker;
-  unsigned char padding8[8];
-  unsigned char shutdown;
-  unsigned char padding10[3];
-  http_endpoint* endpoints;
-  int v30;
+  unsigned char padding6[16];
+  struct http_handler* handlers;
+  struct {
+    unsigned char padding0[4];
+    unsigned char shutdown;
+    unsigned char padding10[3];
+    http_endpoint* endpoints;
+  } control;
   struct http_unk_1 unknown1;
-  struct http_unk_1 unknown2;
   void* callback0;
   void* callback1;
 };
@@ -82,16 +86,17 @@ struct http_buffer {
   int v15;
 };
 
+// Size: 48
 struct http_handler {
   unsigned char padding[4];
   struct http_handler* next;
-  unsigned char v8;
+  struct http_handler* hndl;
   unsigned char v9;
   unsigned char v10;
   unsigned char v11;
-  struct smart_ptr ptr1;
+  unsigned char buf1[16];
   unsigned char padding1[16];
-  struct smart_ptr ptr2;
+  //unsigned char buf2[16];
   unsigned char padding2[4];
 };
 
