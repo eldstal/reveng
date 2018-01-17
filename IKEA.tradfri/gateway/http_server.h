@@ -2,10 +2,10 @@
 #include "worker.h"
 
 // Size: 12
-struct http_unk_1 {
-  unsigned char padding0[4];
-  struct http_handler* handler1;
-  struct http_handler* handler2;
+struct http_handler_list {
+  int counter;
+  struct http_handler* first_handler;
+  struct http_handler* last_handler;
 };
 
 struct http_endpoint {
@@ -19,7 +19,8 @@ struct http_endpoint {
 
 // Size: 572
 struct http_server {
-  unsigned char padding0[15];
+  struct http_handler_list handler_list1;
+  unsigned char padding0[3];
   short int port;
   unsigned char padding5[6];
   struct thread thread;
@@ -33,7 +34,7 @@ struct http_server {
     unsigned char padding10[3];
     http_endpoint* endpoints;
   } control;
-  struct http_unk_1 unknown1;
+  struct http_handler_list handler_list2;
   void* callback0;
   void* callback1;
 };
@@ -88,15 +89,29 @@ struct http_buffer {
 
 // Size: 48
 struct http_handler {
-  unsigned char padding[4];
+  struct http_handler* head;
   struct http_handler* next;
-  struct http_handler* hndl;
+  struct http_handler* prev;
   unsigned char v9;
   unsigned char v10;
   unsigned char v11;
   unsigned char buf1[16];
   unsigned char padding1[16];
-  //unsigned char buf2[16];
-  unsigned char padding2[4];
 };
 
+
+// Size: 376
+struct http_unknown_2 {
+  //struct http_handler handler;
+
+  // Should be a http_handler, probably
+  // but it overlaps with another member object
+  // ...
+  struct http_handler* head;
+  struct http_handler* next;
+  struct http_handler* prev;
+
+  unsigned char buf1[35];
+  unsigned char padding[328];
+
+};
