@@ -1,13 +1,6 @@
 #include "queue.h"
 #include "worker.h"
 
-// Size: 12
-struct http_handler_list {
-  int counter;
-  struct http_handler* first_handler;
-  struct http_handler* last_handler;
-};
-
 struct http_endpoint {
   char* POST;
   char* MIME;
@@ -17,23 +10,26 @@ struct http_endpoint {
   int v4;
 };
 
+struct http_control {
+  unsigned char padding0[4];
+  unsigned char shutdown;
+  unsigned char padding10[3];
+  http_endpoint* endpoints;
+};
+
 // Size: 572
 struct http_server {
   struct http_handler_list handler_list1;
   unsigned char padding0[3];
   short int port;
-  unsigned char padding5[6];
+  unsigned char padding4[6];
   struct thread thread;
   struct queue event_q;
   struct worker worker;
-  unsigned char padding6[16];
+  int unknown;
+  struct http_control control;
   struct http_handler* handlers;
-  struct {
-    unsigned char padding0[4];
-    unsigned char shutdown;
-    unsigned char padding10[3];
-    http_endpoint* endpoints;
-  } control;
+  unsigned char buf1[12];
   struct http_handler_list handler_list2;
   void* callback0;
   void* callback1;
@@ -96,9 +92,17 @@ struct http_handler {
   unsigned char v10;
   unsigned char v11;
   unsigned char buf1[16];
-  unsigned char padding1[16];
+  unsigned char padding1[5];
+  unsigned char buf2[11];   // Initialized as [12]
 };
 
+
+// Size: 12
+struct http_handler_list {
+  int counter;
+  struct http_handler* first_handler;
+  struct http_handler* last_handler;
+};
 
 // Size: 376
 struct http_unknown_2 {
