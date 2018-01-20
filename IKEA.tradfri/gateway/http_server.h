@@ -1,5 +1,7 @@
+#include "list.h"
 #include "queue.h"
 #include "worker.h"
+#include "network.h"
 
 struct http_endpoint {
   char* POST;
@@ -19,18 +21,18 @@ struct http_control {
 
 // Size: 572
 struct http_server {
-  struct http_handler_list handler_list1;
+  struct llist list1;
   unsigned char padding0[3];
   short int port;
   unsigned char padding4[6];
   struct thread thread;
-  struct queue event_q;
+  struct queue event_q;   // There could be an extra int between event_q and worker, which is currently in the queue
   struct worker worker;
   int unknown;
   struct http_control control;
-  struct http_handler* handlers;
-  unsigned char buf1[12];
-  struct http_handler_list handler_list2;
+  struct http_handler* some_handlers;
+  struct llist handler_list;        // These two lists have the same type.
+  struct llist other_handler_list;  //
   void* callback0;
   void* callback1;
 };
@@ -83,39 +85,19 @@ struct http_buffer {
   int v15;
 };
 
+
 // Size: 48
 struct http_handler {
-  struct http_handler* head;
-  struct http_handler* next;
-  struct http_handler* prev;
-  unsigned char v9;
-  unsigned char v10;
-  unsigned char v11;
-  unsigned char buf1[16];
-  unsigned char padding1[5];
+  struct llist_entry list_header;
+  struct socket sock;
   unsigned char buf2[11];   // Initialized as [12]
 };
 
 
-// Size: 12
-struct http_handler_list {
-  int counter;
-  struct http_handler* first_handler;
-  struct http_handler* last_handler;
-};
-
 // Size: 376
 struct http_unknown_2 {
-  //struct http_handler handler;
+  struct llist_entry;
 
-  // Should be a http_handler, probably
-  // but it overlaps with another member object
-  // ...
-  struct http_handler* head;
-  struct http_handler* next;
-  struct http_handler* prev;
-
-  unsigned char buf1[35];
-  unsigned char padding[328];
+  struct network_unknown_1 net;
 
 };

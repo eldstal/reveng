@@ -1,5 +1,7 @@
+// Size: 60, possibly...
 struct queue {
-  unsigned char padding0[8];
+  char obj_type[4];     // "QUEU" == 0x51554555
+  unsigned char padding1[4];
   int v2;
   unsigned char padding3[4];
   int v4;
