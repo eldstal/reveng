@@ -9,6 +9,6 @@ struct llist_entry {
 // Size: 12
 struct llist {
   int length;
-  struct llist_entry* first_handler;
-  struct llist_entry* last_handler;
+  struct llist_entry* first;
+  struct llist_entry* last;
 };

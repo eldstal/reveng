@@ -96,7 +96,7 @@ struct http_handler {
 
 // Size: 376
 struct http_unknown_2 {
-  struct llist_entry;
+  struct llist_entry list_header;
 
   struct network_unknown_1 net;
 

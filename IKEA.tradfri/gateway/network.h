@@ -1,8 +1,10 @@
 
 struct net_unk1_m0 {
-  int v1[77];
+  int v1[38];
+  void* network_object;
+  int v2[38];
   void* func1;   // Set to NULL in one place, a function in another.
-  int v2[6];
+  int v10[6];
 };
 
 // Size: 364
