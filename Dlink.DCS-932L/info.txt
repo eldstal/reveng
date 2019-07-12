@@ -3,3 +3,7 @@ F/W ver: 2.14
 S/N: PVZZ4GC000699
 mydlink no: 63189602
 
+
+Serial port on mainboard:  VDD, TX, RX, GND
+57600 baud, 8N1
+
