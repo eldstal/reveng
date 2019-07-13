@@ -1,0 +1,74 @@
+# cat /proc/version 
+
+Linux version 2.6.21 (andy@ipcam-linux.alphanetworks.com) (gcc version 3.4.2) #473 Fri Sep 9 22:14:04 CST 2016
+
+# cat /proc/partitions 
+major minor  #blocks  name
+
+  31     0       4096 mtdblock0
+  31     1        192 mtdblock1
+  31     2         64 mtdblock2
+  31     3         64 mtdblock3
+  31     4       3776 mtdblock4
+
+
+# cat /proc/devices 
+Character devices:
+  1 mem
+  2 pty
+  3 ttyp
+  4 ttyS
+  5 /dev/tty
+  5 /dev/console
+  5 /dev/ptmx
+ 10 misc
+ 14 sound
+ 81 video4linux
+ 90 mtd
+108 ppp
+116 alsa
+128 ptm
+136 pts
+180 usb
+189 usb_device
+251 nvram
+252 gpio
+253 rdm0
+254 usb_endpoint
+
+Block devices:
+  1 ramdisk
+ 31 mtdblock
+
+
+
+# cat /proc/iomem 
+00000000-01ffffff : System RAM
+  00000000-0031921f : Kernel code
+  00319220-0038a0bf : Kernel data
+101c0000-101c0fff : rt3xxx-ehci
+  101c0000-101c0fff : ehci_hcd
+101c1000-101c1fff : rt3xxx-ohci
+  101c1000-101c1fff : ohci_hcd
+b0000500-b00005ff : serial
+b0000c00-b0000cff : serial
+
+
+
+
+# cat /proc/cpuinfo 
+system type             : Ralink SoC
+processor               : 0
+cpu model               : MIPS 24K V4.12
+BogoMIPS                : 239.61
+wait instruction        : yes
+microsecond timers      : yes
+tlb_entries             : 32
+extra interrupt vector  : yes
+hardware watchpoint     : yes
+ASEs implemented        : mips16 dsp
+VCED exceptions         : not available
+VCEI exceptions         : not available
+
+
+

@@ -7,3 +7,6 @@ mydlink no: 63189602
 Serial port on mainboard:  VDD, TX, RX, GND
 57600 baud, 8N1
 
+username "admin" and password as chosen during setup gives root shell.
+
+
