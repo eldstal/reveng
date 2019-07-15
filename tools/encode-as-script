@@ -1,0 +1,61 @@
+#!/usr/bin/python3
+#
+# Encodes a binary file as an executable shell script
+# This lets us transfer the script across an ASCII-only channel,
+# requiring only a bash shell on the receiving end.
+# When executed, the script generates the original binary file.
+
+import argparse
+import sys
+import string
+
+SAFE = set(bytes(string.printable, 'ascii'))
+SAFE.remove(ord('\''))
+SAFE.remove(ord('-'))
+SAFE.remove(ord('%'))
+SAFE.remove(ord('$'))
+SAFE.remove(ord('`'))
+SAFE.remove(ord('\\'))
+SAFE.remove(ord('\n'))
+SAFE.remove(ord('\r'))
+SAFE.remove(ord('\t'))
+SAFE.remove(ord('\v'))
+SAFE.remove(0x0C)
+
+def escape(byte):
+  # Space-saving encodings of printable stuff
+  # This lets us avoid quadrupling the size of the encoded binary!
+  if (byte == 0): return "\\0"
+
+  #if (byte in SAFE): return str(chr(byte))
+
+  # Generally, a byte takes up four bytes...
+  return "\\x{:02X}".format(byte) 
+
+
+parser = argparse.ArgumentParser(description="Encode a binary file as an ASCII-only shell script")
+
+parser.add_argument('--output', '-o', default='-', type=str,
+    help="Script file to generate. Default: stdout")
+
+parser.add_argument('input', metavar='input',
+    help="Binary file to encode")
+
+
+conf = parser.parse_args()
+
+dest = sys.stdout
+if (conf.output != "-"):
+  dest = open(conf.output, "w+")
+
+source = open(conf.input, "br")
+
+dest.write("#!/bin/bash\n")
+
+while True:
+  chunk = source.read(32)
+  encoded = "".join([ escape(c) for c in chunk ])
+  if (len(chunk) == 0): break
+  #print(chunk)
+  dest.write("printf '{:s}'\n".format(encoded))
+
